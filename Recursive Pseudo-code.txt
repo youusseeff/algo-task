@@ -1,0 +1,23 @@
+Recursive Pseudo-code
+
+
+function birthdayCakeCandlesRecursive(candles, index, length):
+    if (length == 1) then
+        return {count=1, max=candles[index]};
+    endif
+    new_length_part1 = length / 2;
+    new_length_part2 = length - new_length_part1;
+
+    new_index_part1 = index;
+    new_index_part2 = index + new_length_part1;
+
+    branch1 = birthdayCakeCandlesRecursive(candles, new_index_part1, new_length_part1);
+    branch2 = birthdayCakeCandlesRecursive(candles, new_index_part2, new_length_part2);
+
+    if (branch1.max > branch2.max)
+        return branch1;
+    else if (branch1.max < branch2.max)
+        return branch2;
+    else
+        return {count=(branch1.count + branch2.count), max=branch1.max};
+    

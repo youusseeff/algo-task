@@ -1,0 +1,12 @@
+Non-Recursive Algorithm  Pseudo-code 
+ 
+function birthdayCakeCandles(candles):
+  max_height = 0
+  count = 0
+  for each candle in candles:
+    if candle > max_height:
+      max_height = candle
+      count = 1
+    elif candle == max_height:
+      count ++
+  return count
